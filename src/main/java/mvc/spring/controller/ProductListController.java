@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import mvc.spring.service.ProductService;
 
 @Controller
-@RequestMapping("/list")
+@RequestMapping("/")
 public class ProductListController {
 	private final String PRODUCT_LIST = "productList";
 

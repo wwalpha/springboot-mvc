@@ -3,6 +3,9 @@ package mvc.spring.controller;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,7 +46,13 @@ public class ProductController {
 	}
 
 	@PostMapping("/test")
-	public String submit(@ModelAttribute("detailForm") ProductDetailForm form) {
+	public String submit(@Validated @ModelAttribute("detailForm") ProductDetailForm form, BindingResult result,
+			Model model) {
+		if (result.hasErrors()) {
+			model.addAttribute("validationError", "Validateエラー");
+			return "detail";
+		}
+
 		// 新規／更新
 		if (StringUtils.equals(form.getKbn(), MODE_INSERT) || StringUtils.equals(form.getKbn(), MODE_UPDATE)) {
 			service.save(form.getProduct());
@@ -53,7 +62,7 @@ public class ProductController {
 			service.delete(form.getProduct());
 		}
 
-		return "redirect:/list";
+		return "redirect:/";
 	}
 
 	@ModelAttribute("detailForm")

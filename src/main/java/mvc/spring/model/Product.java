@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Digits;
 
 import lombok.Data;
 
@@ -21,5 +22,6 @@ public class Product {
 	private String name;
 
 	@Column
+	@Digits(integer = 3, fraction = 0)
 	private BigDecimal price;
 }

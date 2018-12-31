@@ -13,6 +13,7 @@
 </head>
 <body>
 <div class="container">
+	<p th:if="${validationError}" th:text="${validationError}">validation error</p>
 	<form action="#" th:action="@{/detail/test}" th:object="${detailForm}" method="post">
 	  <div class="form-group">
 	    <label for="name">商品名</label>
