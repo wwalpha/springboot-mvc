@@ -12,6 +12,10 @@ buildscript {
 	}
 }
 
+plugins {
+  id 'net.ltgt.apt' version '0.10'
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse-wtp'
 apply plugin: 'org.springframework.boot'
@@ -21,6 +25,7 @@ apply plugin: 'war'
 group = 'com.wwalpha'
 version = '0.0.1'
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
 	mavenCentral()
@@ -45,8 +50,17 @@ dependencies {
 	runtimeOnly('org.postgresql:postgresql')
 	
 	compileOnly('org.projectlombok:lombok')
+	apt 'org.projectlombok:lombok:1.18.4'
 	
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
-	
-	testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+war {
+	enabled = true
+	archiveName 'spring.war'
+}
+
+bootWar {
+	excludeDevtools = true
+//	version = version
 }

@@ -1,20 +1,14 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8" />
-<link th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}"
-	rel="stylesheet" />
-<script type="text/javascript"
-	th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.min.js}"></script>
-<link rel="stylesheet"
-	th:href="@{/DataTables-1.10.16/css/dataTables.bootstrap4.min.css}" />
-<script type="text/javascript"
-	th:src="@{/DataTables-1.10.16/js/dataTables.bootstrap4.min.js}"></script>
+	<meta charset="UTF-8" />
+	<link href="../css/bootstrap.min.css" rel="stylesheet" />
+	<script type="text/javascript" src="../js/bootstrap.min.js" ></script>
 </head>
 <body>
 <div class="container">
 	<p th:if="${validationError}" th:text="${validationError}">validation error</p>
-	<form action="#" th:action="@{/detail/test}" th:object="${detailForm}" method="post">
+	<form action="#" th:action="@{test}" th:object="${detailForm}" method="post">
 	  <div class="form-group">
 	    <label for="name">商品名</label>
 		<input

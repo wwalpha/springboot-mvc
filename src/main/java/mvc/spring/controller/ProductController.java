@@ -49,15 +49,13 @@ public class ProductController {
 	public String submit(@Validated @ModelAttribute("detailForm") ProductDetailForm form, BindingResult result,
 			Model model) {
 		if (result.hasErrors()) {
-			model.addAttribute("validationError", "Validateエラー");
+			model.addAttribute("validationError", "Validate繧ｨ繝ｩ繝ｼ");
 			return "detail";
 		}
 
-		// 新規／更新
 		if (StringUtils.equals(form.getKbn(), MODE_INSERT) || StringUtils.equals(form.getKbn(), MODE_UPDATE)) {
 			service.save(form.getProduct());
 		}
-		// 削除
 		if (StringUtils.equals(form.getKbn(), MODE_DELETE)) {
 			service.delete(form.getProduct());
 		}

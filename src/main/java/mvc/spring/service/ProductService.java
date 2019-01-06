@@ -10,7 +10,7 @@ import mvc.spring.model.Product;
 import mvc.spring.model.ProductRepository;
 
 /**
- * ¤•iƒT[ƒrƒX
+ * å•†å“ã‚µãƒ¼ãƒ“ã‚¹
  *
  */
 @Service
@@ -20,7 +20,7 @@ public class ProductService {
 	private ProductRepository repo;
 
 	/**
-	 * ‘SŒŒŸõ
+	 * å…¨ä»¶æ¤œç´¢
 	 * 
 	 * @return
 	 */
@@ -29,9 +29,9 @@ public class ProductService {
 	}
 
 	/**
-	 * Ú×ŒŸõ
+	 * è©³ç´°æ¤œç´¢
 	 * 
-	 * @param itemId ¤•iID
+	 * @param itemId å•†å“ID
 	 * @return
 	 */
 	public Product find(Long itemId) {
@@ -39,9 +39,9 @@ public class ProductService {
 	}
 
 	/**
-	 * •Û‘¶ˆ—
+	 * ä¿å­˜å‡¦ç†
 	 * 
-	 * @param item ¤•i
+	 * @param item å•†å“
 	 * @return
 	 */
 	@Transactional
@@ -50,9 +50,9 @@ public class ProductService {
 	}
 
 	/**
-	 * íœˆ—
+	 * å‰Šé™¤å‡¦ç†
 	 * 
-	 * @param item ¤•i
+	 * @param item å•†å“
 	 */
 	@Transactional
 	public void delete(Product item) {
